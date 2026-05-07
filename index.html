@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherGo Dashboard</title>
+    <meta name="description" content="A premium weather app demonstrating core JS concepts like closures, event delegation, and higher-order functions.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="header-top">
+                <h1>WeatherGo</h1>
+            </div>
+            
+            <div class="header-controls">
+                <form id="search-form" class="search-box">
+                    <input type="text" id="city-input" placeholder="Enter any city name..." autocomplete="off">
+                    <button type="submit" id="search-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </button>
+                </form>
+                <button type="button" id="unit-toggle" class="unit-toggle">°C / °F</button>
+            </div>
+            
+            <div id="search-history" class="search-history">
+                <!-- Search history chips dynamically injected here -->
+            </div>
+            
+            <div id="error-message" class="error-message hidden">City not found. Please try again.</div>
+        </header>
+
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Processing data...</p>
+        </div>
+
+        <main id="weather-display" class="dashboard hidden">
+            <!-- Left Side: Current Weather -->
+            <section class="current-weather">
+                <h2 id="city-name">London</h2>
+                <p id="date">Mon, 04 May</p>
+                
+                <div class="weather-main">
+                    <div class="weather-icon" id="weather-icon">☀️</div>
+                    <div class="temperature"><span id="temp-value">22</span><span id="temp-unit" class="unit">°C</span></div>
+                </div>
+                <p id="weather-description" class="description">Sunny</p>
+                
+                <div class="details">
+                    <div class="detail-item">
+                        <span class="label">Humidity</span>
+                        <span class="value" id="humidity-value">45%</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Wind</span>
+                        <span class="value" id="wind-value">12 km/h</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">AQI</span>
+                        <span class="value" id="aqi-value">Good</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Visibility</span>
+                        <span class="value" id="visibility-value">10 km</span>
+                    </div>
+                </div>
+
+                <div class="recommendations" id="recommendations">
+                    <h3>What to do</h3>
+                    <ul id="recommendation-list">
+                        <!-- AI logic closures will inject list items here -->
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Right Side: Forecast and Custom JS Graph -->
+            <section class="forecast-section">
+                <h3>5-Day Forecast</h3>
+                <div class="forecast-cards" id="forecast-cards">
+                    <!-- Forecast cards dynamically injected by JavaScript via appendChild -->
+                </div>
+                
+                <div class="chart-container" id="chart-container">
+                    <h3>Chance of Rain</h3>
+                    <div class="bars-wrapper" id="bars-wrapper">
+                        <!-- DOM nodes created here via JS for our custom bar chart -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
